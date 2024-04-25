@@ -1,0 +1,47 @@
+---------------------------------
+Termékek lekérdezése táblázatba: ()
+---------------------------------
+SELECT t.id AS ID, tcs.megnevezes AS Termék_csoport, t.megnevezes AS Név, t.leiras AS Leírás, 
+t.netto_egyseg_ar AS Nettó_ár, m.megnevezes AS Egység, a.megnevezes AS Áfakulcs 
+FROM termek AS t INNER JOIN termek_csoport AS tcs ON tcs.id = t.termek_csoport_id 
+INNER JOIN mennyisegi_egysegek AS m ON m.id = t.mennyisegi_egysegek_id 
+INNER JOIN afa_kulcsok AS a ON a.id = t.afa_kulcs_id 
+ORDER BY tcs.id;
+---------------------------------
+Rendelés tételeinek lekérdezése táblázatba: ()
+---------------------------------
+SELECT r.id AS Rendelés_Száma, rt.ID AS tétel_ID, t.megnevezes AS Termék, rt.netto_egyseg_ar AS Nettó_egységár, 
+rt.afakulcs AS Áfa, rt.mennyiseg AS mennyiség 
+FROM rendeles_tetelei AS rt 
+INNER JOIN termek AS t ON t.id = rt.termek_id 
+INNER JOIN rendeles AS r ON r.id = rt.rendeles_id 
+ORDER BY 1;
+---------------------------------
+Rendelés lekérdezése táblázatba: ()
+---------------------------------
+SELECT r.id AS Rendelés_Száma, r.teljes_nev AS Név, fa.telefonszam AS Telefon, r.cim AS Cím,
+fm.megnevezes AS Fizetés_módja, rs.rendeles_allapot AS Állapot, r.rendeles_datumido AS Ipőpont,
+r.szallitas_datum AS Szállítási_dátum, r.szallitas_megj AS Megjegyzés, r.netto_vegosszeg AS Nettó_végösszeg,
+r.brutto_vegosszeg AS Bruttó_végösszeg 
+FROM rendeles AS r
+INNER JOIN felhasznalo_adatok AS fa ON fa.id = r.felhasznalo_adatok_id
+INNER JOIN fizetesi_modok AS fm ON fm.id = r.fizetesi_modok_id
+INNER JOIN rendeles_statusza AS rs ON rs.id = r.rendeles_statusza_id
+ORDER BY r.rendeles_datumido;
+-----------------------------------------
+Termék Csoport lekérdezése táblázatba: ()
+-----------------------------------------
+SELECT tcs.id AS ID, tk.megnevezes AS Termék_kategória, tcs.megnevezes AS Megnevezés
+FROM termek_csoport AS tcs 
+INNER JOIN termek_kategoria AS tk ON tcs.termek_kategoria_id=tk.id
+ORDER BY tcs.id;
+-----------------------------------------
+Szállitási cím lekérdezése táblázatba: ()
+-----------------------------------------
+SELECT szc.id AS ID, fh.teljes_nev AS Felhasználói_adatok, t.telepules AS Település, szc.utca_hazszam AS Utca_házszám
+FROM szallitasi_cim AS szc
+INNER JOIN felhasznalo_adatok AS fh ON szc.felhasznalo_adatok_id = fh.id
+INNER JOIN telepulesek AS t ON szc.telepules_id = t.id
+ORDER BY szc.id;
+
+
