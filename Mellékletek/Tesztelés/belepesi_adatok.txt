@@ -1,0 +1,3 @@
+Admin alkalmazás belépési adatai:
+Név: a
+Jelszó: a
