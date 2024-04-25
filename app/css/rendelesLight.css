@@ -1,0 +1,503 @@
+
+/*fonts*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playpen+Sans&display=swap");
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+/*root globális változók a reszponzivitás és a témaváltás megkönnyítése érdekében*/
+/* Sötét mód */
+:root { 
+  --primary-text: black;
+  --border-hover:rgb(255, 242, 128);
+  --rendeles-primary: rgb(136, 102, 0);
+  --gomb: rgba(255, 235, 119, 0.8);
+  --gomb-hover:rgba(255, 244, 179, 0.8);
+  --kosar_kiemelt: rgb(126, 101, 0);
+  --kosar_hatter: rgba(214, 213, 199, 0.8);
+  --torol-hatter: rgba(155, 48, 48, 0.1);
+  --torol-hatter-hover: rgba(194, 25, 25, 0.3);
+  --ikon:rgb(165, 136, 17);
+  --ikon-hover:rgba(255, 217, 0, 0.5);
+  --inputBackground: rgba(192, 192, 192, 0.288);
+  --inputBackgroundHover: rgba(255, 255, 255, 0.2);
+  --optionBackground:rgb(255, 223, 154);
+  --submit_hover: rgb(227, 187, 87);
+  --box-shadow: rgba(36, 27, 8, 0.6);
+  --hover-shadow: rgb(187, 144, 50);
+  --input-border: rgb(161, 132, 15);
+  --input-ikon:rgb(227, 199, 87);
+}
+/* Sötét mód */
+/*main-css*/
+html {
+  scroll-behavior: smooth;
+}
+body{
+    font-family: "Playpen Sans", sans-serif;
+    margin: 0;
+    background: url(../img/lightbg.jpg);
+    color: var(--primary-text);
+    min-height: 99vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    transition: all 0.3s ease-in-out;
+}
+#oldal{
+    display: none;
+}
+a{
+  text-decoration: none;
+  color: var(--primary-text);
+}
+.content{
+    width: clamp(340px,65vw,900px);
+    height: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* kosár elrendezés */
+.kosar{
+    width: 100%;
+    margin-block: 20px;
+    max-height: clamp(500px,92vh,900px);
+    border-radius: 10px;
+    border: 2px solid var(--rendeles-primary);
+    display: block;
+    align-items: center;
+    justify-content: center;
+    /*background-color: var(--kosar_hatter);*/
+    background-image: url(../img/Frame\ 19.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 3px 10px 24px rgba(34, 23, 6, 0.9);
+}
+.kosar-felso{
+    width: 100%;
+    height: clamp(60px,10vh,120px);
+    display: flex;
+}
+/*header*/
+#kosarHeader, .kosarTorles{
+    border-bottom: 2px solid var(--rendeles-primary);
+    width: 50%;
+    min-height: 100%;
+    font-size: 16px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.torol_gomb{
+    font-family: "Playpen Sans";
+    height: clamp(50px,5vh,70px);
+    padding: 10px 15px;
+    color: var(--primary-text);
+    background-color: var(--torol-hatter);
+    border: 2px solid var(--primary-text);
+    font-size: 16px;
+    border-radius: 6px;
+    transition: ease-in-out 0.4s;
+    box-shadow: 1px 4px 10px var(--box-shadow);
+}
+.torol_gomb:hover{
+    background-color: var(--torol-hatter-hover);
+    padding: 10px 30px;
+    border: 2px solid rgb(142, 0, 0);
+    cursor: pointer;
+    box-shadow: 1px 6px 14px rgba(255, 0, 0, 0.4);
+}
+/*body*/
+#kosarBody{
+    width: 100%;
+    max-height: clamp(200px,70vh,600px);
+    overflow-y: scroll;
+    scrollbar-width: 5px;
+    display: block;
+    font-size: 15px;
+}
+#kosarBody::-webkit-scrollbar {
+    width: 5px;
+}
+.kosar-elem{
+    width: 98%;
+    margin: auto;
+    height: 101px;
+    display: flex;
+    border-bottom: 2px solid var(--rendeles-primary);
+  }
+.kosar-elem:last-child{
+    border-bottom: none;
+}
+  /* baloldal */
+  .kosar-bal{
+    width: clamp(150px,30vw,200px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .t_kep{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .t-img{
+    width: clamp(120px,60%,120px);
+    aspect-ratio: 16/9;
+    border-radius: 5px;
+    box-shadow: 2px 8px 16px rgba(0, 0, 0, 0.8);
+  }
+  /* jobboldal */
+  .kosar-jobb{
+    width: clamp(190px,60vw,280px);
+    display: block;
+    align-items: center;
+    justify-content: center; 
+  }
+  .t_nev, .t_brutto, .t_mennyiseg{
+    text-align: left;
+    width: 100%;
+    height: 24px;
+  }
+  .t_nev{
+    text-align: left;
+    margin-top: 12px;
+    font-size: 16px;
+    overflow: hidden;
+  }
+  .t_brutto{
+    text-align: left;
+    color: var(--kosar_kiemelt);
+    font-size: 16px;
+  }
+  .t_mennyiseg{
+    text-align: left;
+    margin-bottom: 24px;
+  }
+/* hozzaadas, torles */
+.kosar_gomb{
+    margin-left: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--primary-text);
+    transition: all ease-in-out 0.4s;
+}
+.kosar_gomb:hover{
+    cursor: pointer;
+    border: 1px solid var(--kosar_kiemelt);
+    box-shadow: 1px 1px 4px var(--ikon-hover);
+}
+i{
+  color: var(--ikon);
+}
+
+/*termek leiras (ha széles a képernyő)*/
+.t_leiras{
+    width: clamp(300px,50%,460px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*footer*/
+#kosarFooter{
+    border-top: 2px solid var(--rendeles-primary);
+    height: clamp(60px,10vh,120px);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.footer_jobb{
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer_bal{
+  font-size: 15px;
+  width: 50%;
+  padding: 2px 5px;
+  text-align: center;
+}
+.kosar-kiemelt{
+  color: var(--kosar_kiemelt);
+  font-weight: 600;
+}
+.tovabb{
+    font-family: "Playpen Sans";
+    height: clamp(50px,5vh,70px);
+    width: clamp(160px,12vw,220px);
+    border: 2px solid var(--primary-text);
+    font-size: 15px;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-text);
+    background-color: var(--gomb);
+    border-radius: 6px;
+    transition: ease-in-out 0.3s;
+    padding: 3px 5px;
+    box-shadow: 1px 4px 10px var(--box-shadow);
+}
+.tovabb:hover{
+    width: clamp(160px,14vw,250px);
+    border: 2px solid var(--border-hover);
+    background-color: var(--gomb-hover);
+    box-shadow: 2px 8px 16px var(--hover-shadow);
+}
+
+
+/*ADATOK MEGADÁSA OLDAL*/
+.alert{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+    color: red;
+  }
+  .alert2{
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+    color: red;
+  }
+
+.formTarolo{
+  margin: auto;
+  width: clamp(340px,40vw,600px);
+  height: clamp(500px,95vh,700px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(../img/Frame\ 19.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 15px;
+  box-shadow: 3px 10px 24px rgba(34, 23, 6, 0.9);
+}
+.formTarolo i{
+    color: var(--input-ikon);
+    text-shadow: 0.5px 0.5px 0.5px black;
+}
+#formAdatokMegadasa{
+  width: 85%;
+}
+.input{
+  width: 100%;
+  height: 30px;
+  display: flex;
+}
+.formIcon{
+  width: 12%;
+}
+.inp {
+  height: 100%;
+  background: var(--inputBackground);
+  border: 2px solid transparent;
+  border-radius: 5px;
+  padding: 0 0.5rem;
+  width: 88%;
+  margin: auto 0px auto;
+  color: var(--primary-text);
+  transition: all 0.4s ease-in-out;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+}
+.inp::placeholder {
+  transition: all 0.3s ease-in-out ;
+  color: var(--primary-text);
+  font-size: 0.8rem;
+  opacity: 0.5;
+}
+.inp:focus {
+  outline: none;
+  background: var(--inputBackgroundHover);
+  border: 2px solid var(--input-border);
+  box-shadow: 0px 8px 16px rgba(237, 215, 125, 0.5);
+}
+.inp:focus::placeholder {
+  opacity: 0;
+}
+.input-p{
+  margin: 15px 0px 5px 12%;
+}
+textarea{
+  height: 60px;
+  background: var(--inputBackground);
+  border: 2px solid transparent;
+  border-radius: 5px;
+  padding: 0 0.5rem;
+  width: 88%;
+  transition: all 0.4s ease-in-out;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+  margin-left: 12%;
+  color: var(--primary-text);
+}
+textarea:focus {
+  outline: none;
+  background: var(--inputBackgroundHover);
+  border: 2px solid var(--kosar_kiemelt);
+  box-shadow: 0px 8px 16px rgba(237, 215, 125, 0.5);
+}
+textarea:focus::placeholder {
+  opacity: 0;
+}
+h2{
+  text-align: center;
+}
+option{
+  background: var(--optionBackground);
+  border-radius: 5px;
+  border: 1px solid var(--kosar_kiemelt);
+}
+/*ALSÓ SOR*/
+.alsoSor{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  width: 88%;
+  margin: 10px auto 0px 12%;
+}
+.submit{
+  background-color: rgba(255, 208, 113, 0.3);
+  font-family: "Playpen Sans";
+  height: 100%;
+  width: clamp(120px,40%,250px);
+  border: 2px solid var(--kosar_kiemelt);
+  border-radius: 5px;
+  padding: 0px 20px;
+  color: var(--primary-text);
+  font-size: 16px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 0px 0px auto;
+  transition: ease-in-out 0.3s;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+}
+.submit:hover{
+  cursor: pointer;
+  width: clamp(135px,45%,280px);
+  border: 2px solid var(--submit_hover);
+  box-shadow: 0px 8px 16px rgba(237, 215, 125, 0.5);
+}
+.submit:hover i{
+    color: var(--submit_hover);
+  }
+#vissza{
+  margin: 0px auto 0px 0px;
+}
+
+/*RENDELÉS VÉGLEGESÍTÉSE OLDAL (blokk)*/
+#hidden{
+  display: none;
+}
+.rendeles-vege-content{
+  width: clamp(300px,95vw,600px);
+  padding: 4px 30px 24px 30px;
+  margin: auto;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  background-image: url(../img/Frame\ 18.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  box-shadow: 6px 16px 28px var(--box-shadow);
+}
+.tablazat-container{
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#felso-t{
+  width: 100%;
+}
+#also-t{
+  width: 100%;
+}
+td{
+  height: fit-content;
+  text-align: left;
+}
+.cimke{
+  width: clamp(100px,30vw,140px);
+  border: none;
+  font-weight: bold;
+}
+.th-megn{
+  width: clamp(220,60vw,400px);
+  text-align: left;
+}
+.th-egys{
+  width: clamp(80px,20vw,100px);
+  text-align: center;
+}
+.th-menny{
+  width: clamp(30px,15vw,100px);
+  text-align: center;
+}
+.cim{
+  padding: 20px 0 0 0;
+}
+hr{
+  margin-bottom: 14px;
+}
+#rendeles-vege-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 15px;
+}
+.alsoSorBlokk{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  width: 100%;
+  margin: 10px 0px 0px 0px;
+}
+#rendeles-vege-gomb-1{
+  padding: 10px 20px;
+  margin: 0 auto 0 0;
+}
+#rendeles-vege-gomb-2{
+  padding: 10px 20px;
+  margin: 0 0 0 auto;
+}
+
+
+@media screen and (max-width: 700px) {
+    .t_nev, .t_brutto, .t_mennyiseg{
+        text-align: center;
+        width: 95%;
+        margin-left: 5px;
+    }
+    .t_leiras{
+        display: none;
+    }
+  }

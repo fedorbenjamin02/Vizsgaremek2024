@@ -1,0 +1,526 @@
+/*fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+*,
+::after,
+::before {
+    box-sizing: border-box;
+}
+/*root globális változók a reszponzivitás és a témaváltás megkönnyítése érdekében*/
+
+/*DARKMODE*/
+:root{
+    --main: white;
+  --inputBackground: rgba(255, 255, 255, 0.1);
+  --inputBackgroundHover: rgba(255, 255, 255, 0.2);
+  --sidebar_hatter-transparent: transparent;
+  --sidebar_hatter: rgba(28, 28, 28, 0.98);
+  --navbar_hatter: rgb(24, 24, 24);
+  --footer_hatter: rgb(20, 20, 20);
+  --ikon: rgb(202, 202, 202);
+  --toggler_border: rgb(182, 182, 182);
+  --sidebar_betu_hover: rgb(218, 167, 72);
+  --kartya_header: rgb(24, 24, 24);
+  --kartya_body: rgb(30, 30, 30);
+  --kartya_footer: rgb(25, 25, 25);
+  --kartya_shadow_1: rgb(0, 0, 0);
+  --kartya_shadow_2: rgba(0, 0, 0, 0.9);
+  --text-hover-shadow: 1px 1px 3px #ffb11f5b;
+  --kartya_hover_shadow_1: rgba(255, 204, 109, 0.25);
+  --kartya_hover_shadow_2: rgba(255, 196, 120, 0.22);
+  --placeholder-hover: rgb(180, 130, 0);
+  --step--2: clamp(0.8781rem, 0.8341rem + 0.22vw, 1.0981rem);
+  --step--1: clamp(0.9475rem, 0.8998rem + 0.2338vw, 1.1913rem);
+  --step-0: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
+  --step-1: clamp(1.0669rem, 1.0135rem + 0.2669vw, 1.3338rem);
+  --step-2: clamp(1.1388rem, 1.0819rem + 0.2844vw, 1.4231rem);
+  --step-3: clamp(1.215rem, 1.1543rem + 0.3038vw, 1.5188rem);
+  --step-4: clamp(1.2963rem, 1.2315rem + 0.3238vw, 1.62rem);
+  --step-5: clamp(1.3831rem, 1.314rem + 0.3456vw, 1.7288rem);
+  --step-6: clamp(1.631rem, 1.564rem + 0.3956vw, 2.1288rem);
+  --step-7: clamp(1.981rem, 1.894rem + 0.4556vw, 2.6288rem);
+  --step-8: clamp(2.361rem, 2.264rem + 0.5156vw, 3.3288rem);
+  --primary-text: white;
+  --text-hover: black;
+  --rendeles-primary: rgb(200, 100, 30);
+  --rendeles-hover: rgb(230, 205, 120);
+  --bg-color: rgb(32, 32, 32);
+}
+/*DARKMODE*/
+
+/*main-css*/
+html{
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Playpen Sans', sans-serif;
+    margin: 0;
+    background: url(../img/darkbg.jpg);
+    /*background-image: url("https://github.com/fedorbenjamin02/images/blob/main/img/darkbg.jpg?raw=true");*/
+    color: var(--primary-text);
+    background-color: var(--bg-color);
+    min-height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    transition: all ease-in-out 0.1s;
+}
+body::-webkit-scrollbar{
+    display: none;
+}
+a {
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Playpen Sans', sans-serif;
+}
+li {
+    list-style: none;
+}
+/*belepes és regisztracio*/
+/*FORMS*/
+#siker{
+  color: green;
+}
+#alert{
+  width: fit-content;
+  margin-top: 30px;
+  margin-inline: auto;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  color: red;
+  font-family: "Poppins";
+  z-index: 1;
+}
+.Step {
+    display: none;
+  }
+  .form-group{
+    width: 100%;
+    justify-items: center;
+    align-items: center;
+    padding: 0;
+  }
+  .form-alcim{
+    width: 300px;
+    margin-inline: auto;
+    font-family: "Poppins";
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  #tabNumber{
+    position: absolute;
+    font-family: "Poppins";
+    font-size: 18px;
+    letter-spacing: 3px;
+    left: 20px;
+    top: 20px;
+  }
+  label.error {
+    width: 0;
+    overflow: hidden;
+  }
+  label.error .inp::placeholder{
+    initial-value: "helytelen adat";
+  }
+  input.error,
+  textarea.error {
+    border: 1px solid red;
+  }
+  input.valid,
+  textarea.valid {
+    border: 1px solid green;
+  }
+  #btnPrevious{
+    position: absolute;
+    left: 40px;
+    width: 150px;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    background-blend-mode: multiply;
+  }
+  #btnNext{
+    position: absolute;
+    right: 40px;
+    width: 150px;
+    transform: translateX(-50%);
+  }
+  .btn.valid{
+    border: 2px solid black;
+  }
+  .inp-p {
+    width: 100%;
+    text-align: left;
+    margin: 3px 0 3px 60px;
+    font-size: 1rem;
+  }
+  .inp-p-reg {
+    width: 100%;
+    text-align: left;
+    margin: 3px 0 3px 30px;
+    font-size: 1rem;
+  }
+  .input {
+    display: flex;
+    background: transparent;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+  .inp {
+    height: 100%;
+    background: var(--inputBackground);
+    border: none;
+    border-radius: 5px;
+    padding: 0 0.5rem;
+    margin: 0 0 0 10px;
+    width: 100%;
+    color: var(--main);
+    transition: all 0.4s ease-in-out;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+  }
+  .inp::placeholder {
+    transition: all 0.3s ease-in-out ;
+    color: var(--main);
+    font-size: 0.8rem;
+    opacity: 0.5;
+  }
+  .inp:focus {
+    background: var(--inputBackgroundHover);
+    outline: none;
+  }
+  .inp:focus::placeholder {
+    opacity: 0;
+  }
+  .formIcon {
+    align-self: center;
+    justify-self: center;
+  }
+  .fi{
+    color: var(--main);
+  }
+  .fi:hover{
+    transform: none;
+    color: var(--main);
+    text-shadow: none;
+  }
+  .btn {
+    background: url(../img/Frame\ 16.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 8px;
+    border: 2px solid var(--main);
+    color: var(--main);
+    cursor: pointer;
+    position: absolute;
+    bottom: 40px;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    padding: 1rem 0.5rem;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in-out;
+    text-shadow: -1px -1px 2px black, 1px 1px 2px black, -1px 1px 2px black,
+      1px -1px 2px black;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.6);
+    width: 200px;
+  }
+  .btn:hover {
+    font-size: 1rem;
+    background: url(../img/Frame\ 17.jpg);
+    transition: all 0.2s ease-in-out;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 8px;
+    border: 2px solid var(--main);
+  }
+  .btn-back{
+    position: absolute;
+    bottom: 60px;
+    left: 45px;
+    background: transparent;
+    border: none;
+  }
+  .btn-back:hover{
+    border: none;
+  }
+  .btn-back.hidden{
+    display: none;
+  }
+  .btn-cancel{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+  }
+  
+  .btn-cancel:hover{
+    border: none;
+  }
+  .close{
+    color: white;
+    transform: scale(125%);
+  }
+  .close:hover{
+    transform: scale(150%);
+    color: red;
+    box-shadow: 0px 4px 12px red;
+  }
+  
+  .form-cim {
+    position: absolute;
+    top: 50px;
+    font-size: var(--step-5);
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .link {
+    font-size: 0.9rem;
+    margin: 1.5rem 0;
+    text-decoration: none;
+  }
+  
+  .seged {
+    position: absolute;
+    display: flex;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    z-index: 3;
+    opacity: 1;
+  }
+  .regoldal{
+    width: 100%;
+  }
+  #elso-oldal.hidden{
+    display: none;
+  }
+  #masodik-oldal.hidden{
+    display: none;
+  }
+  .form-container {
+    z-index: 2;
+    height: 530px;
+    max-width: 800px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    color: var(--primary-text);
+    overflow: hidden;
+    position: relative;
+    margin: auto;
+    width: 100%;
+    border-radius: 10px;
+    font-family: "Poppins", sans-serif;
+    /*box-shadow: 5px 10px 18px black;*/
+  }
+  
+  .form-popup {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transition: all 0.6s ease-in-out;
+  }
+  
+  #form-bejelentkezes {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+  }
+  
+  .form-container.regisztracio #form-bejelentkezes {
+    transform: translateX(100%);
+  }
+  
+  #form-regisztracio {
+    left: 0;
+    opacity: 0;
+    width: 50%;
+    z-index: 2;
+  }
+  
+  .form-container.regisztracio #form-regisztracio {
+    opacity: 1;
+    transform: translateX(100%);
+    z-index: 5;
+  }
+  
+  .overlay-container {
+    height: 100%;
+    left: 50%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    transition: transform 0.6s ease-in-out;
+    width: 50%;
+    z-index: 100;
+  }
+  
+  .form-container.regisztracio .overlay-container {
+    transform: translateX(-100%);
+  }
+  
+  .overlay {
+    background: url(../img/Frame\ 9.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    left: -100%;
+    position: relative;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+    width: 200%;
+  }
+  
+  .form-container.regisztracio .overlay {
+    transform: translateX(50%);
+  }
+  
+  .overlay-panel {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+    width: 50%;
+  }
+  
+  #overlay-left {
+    transform: translateX(-20%);
+  }
+  
+  .form-container.regisztracio #overlay-left {
+    transform: translateX(0);
+  }
+  
+  #overlay-right {
+    right: 0;
+    transform: translateX(0);
+  }
+  
+  .form-container.regisztracio #overlay-right {
+    transform: translateX(20%);
+  }
+  
+  .form > .btn {
+    margin-top: 1.5rem;
+  }
+  
+  .form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 3rem;
+    height: 100%;
+    text-align: center;
+    background: url(../img/Frame\ 11.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto;
+    border-radius: 6px;
+    box-shadow: var(--kartya_shadow_1) 0px 8px 16px,
+      var(--kartya_shadow_2) 0px 12px 12px;
+  }
+  
+  @media screen and (max-width: 820px) {
+    .form {
+      background: url(../img/Frame\ 15.jpg);
+    }
+    .form-container {
+      height: 1000px;
+      max-width: 400px;
+      width: 100%;
+    }
+    .form-popup {
+      height: 50%;
+      top: 0;
+      left: 0;
+    }
+    #form-bejelentkezes {
+      top: 0;
+      width: 100%;
+    }
+    .form-container.regisztracio #form-bejelentkezes {
+      transform: translateY(100%);
+    }
+    #form-regisztracio {
+      top: 0;
+      width: 100%;
+    }
+    .form-container.regisztracio #form-regisztracio {
+      transform: translateY(100%);
+    }
+    .overlay-container {
+      left: 0;
+      height: 50%;
+      top: 50%;
+      width: 100%;
+    }
+    .form-container.regisztracio .overlay-container {
+      transform: translateY(-100%);
+    }
+    .overlay {
+      background-image: url(../img/Frame\ 12.jpg);
+      left: 0;
+      height: 200%;
+      top: 0;
+      transform: translateY(-50%);
+      width: 100%;
+    }
+    .form-container.regisztracio .overlay {
+      transform: translateY(0);
+    }
+    .overlay-panel {
+      height: 50%;
+      left: 0;
+      top: 0;
+      width: 100%;
+    }
+    #overlay-left {
+      transform: translateY(0);
+    }
+    .form-container.regisztracio #overlay-left {
+      transform: translateY(0);
+    }
+    #overlay-right {
+      transform: translateY(100%);
+    }
+    .form-container.regisztracio #overlay-right {
+      transform: translateY(100%);
+    }
+    .btn {
+      position: relative;
+      margin-top: 450px;
+      margin-bottom: 20px;
+    }
+    .btn.login{
+      margin-top: 60px;
+    }
+    #btnNext{
+      margin-bottom: 0;
+    }
+    #btnPrevious{
+      margin-bottom: 0;
+    }
+  }
+  /* ENDFORMS */
+

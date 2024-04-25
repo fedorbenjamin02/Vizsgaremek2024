@@ -1,0 +1,113 @@
+<div class="kosar-tartalom-hidden" id="kosar">
+                            <div class="kosar-elem">
+                                <div class="kosar-bal">
+                                    <div class='t_kep'><img class='img-fluid t-img' src='img/<?php echo $t_kep?>' alt=''></div>   
+                                </div>
+                                <div class="kosar-jobb">
+                                    <div class='t_nev'><?php echo $t_nev?></div>
+                                    <div class='t_brutto'><?php echo $t_brutto_ar?> Ft</div>
+                                    <div class='t_mennyiseg'><?php echo $t_mennyiseg?>
+                                    <button class="kosar_gomb"><i class="fa-solid fa-plus"></i></button>
+                                    <button class="kosar_gomb"><i class="fa-solid fa-minus"></i></button>
+                                    <button class="kosar_gomb"><i class="fa-solid fa-trash"></i></button></div>
+                                </div>
+                            </div> 
+                            <div class="kosar-elem">
+                                <div class="kosar-bal">
+                                    <div class='t_kep'><img class='img-fluid t-img' src='img/<?php echo $t_kep?>' alt=''></div>   
+                                </div>
+                                <div class="kosar-jobb">
+                                    <div class='t_nev'><?php echo $t_nev?></div>
+                                    <div class='t_brutto'><?php echo $t_brutto_ar?> Ft</div>
+                                    <div class='t_mennyiseg'><?php echo $t_mennyiseg?>
+                                    <button class="kosar_gomb"><i class="fa-solid fa-plus"></i></button>
+                                    <button class="kosar_gomb"><i class="fa-solid fa-minus"></i></button>
+                                    <button class="kosar_gomb"><i class="fa-solid fa-trash"></i></button></div>
+                                </div>
+                            </div> 
+                            <div class="kosar-elem">
+                                <div class="kosar-bal">
+                                    <div class='t_kep'><img class='img-fluid t-img' src='img/<?php echo $t_kep?>' alt=''></div>   
+                                </div>
+                                <div class="kosar-jobb">
+                                    <div class='t_nev'><?php echo $t_nev?></div>
+                                    <div class='t_brutto'><?php echo $t_brutto_ar?> Ft</div>
+                                    <div class='t_mennyiseg'><?php echo $t_mennyiseg?>
+                                    <button class="kosar_gomb"><i class="fa-solid fa-plus"></i></button>
+                                    <button class="kosar_gomb"><i class="fa-solid fa-minus"></i></button>
+                                    <button class="kosar_gomb"><i class="fa-solid fa-trash"></i></button></div>
+                                </div>
+                            </div> 
+                        </div>
+js
+
+/*
+        for(let i = 0; i < n; i++){
+            //kosar elem
+            var kosar_elem = document.createElement('div');
+            kosar_elem.setAttribute('class','kosar-elem');
+            parent.appendChild(kosar_elem);
+            //kosar -bal
+            var kosar_bal = document.createElement('div');
+            kosar_bal.setAttribute('class','kosar-bal');
+            kosar_elem.appendChild(kosar_bal);
+            //kosar -jobb
+            var kosar_jobb = document.createElement('div');
+            kosar_jobb.setAttribute('class','kosar-jobb');
+            kosar_elem.appendChild(kosar_jobb);
+            //termek kep
+            var t_kep = document.createElement('div');
+            t_kep.setAttribute('class','t_kep');
+            kosar_bal.appendChild(t_kep);
+            // img
+            var img = document.createElement("img");
+            img.setAttribute('class','img-fluid t-img');
+            img.setAttribute('src','img/ ' KÉP);
+            t_kep.appendChild(img);
+            //termek neve
+            var t_nev = document.createElement('div');
+            t_nev.setAttribute('class','t_nev');
+            kosar_jobb.appendChild(t_nev);
+            t_nev.innerHTML = sorok[i]['megn'];
+            //termek ara
+            var t_brutto = document.createElement('div');
+            t_brutto.setAttribute('class','t_brutto');
+            kosar_jobb.appendChild(t_brutto);
+            t_brutto.innerHTML = sorok[i]['b_ar'] + ' Ft';
+            //termek mennyisege
+            var t_mennyiseg = document.createElement('div');
+            t_mennyiseg.setAttribute('class','t_mennyiseg');
+            kosar_jobb.appendChild(t_mennyiseg);
+            t_mennyiseg.innerHTML = sorok[i]['menny'] + ' ' + sorok[i]['me'];
+            //gombok
+            /*
+            var g_plusz = document.createElement('button');
+            var g_minusz = document.createElement('button');
+            var g_torol = document.createElement('button');
+            g_plusz.setAttribute('class','kosar_gomb');
+            g_minusz.setAttribute('class','kosar_gomb');
+            g_torol.setAttribute('class','kosar_gomb');
+            kosar_jobb.appendChild(g_plusz);
+            kosar_jobb.appendChild(g_minusz);
+            kosar_jobb.appendChild(g_torol);
+            //ikonok
+            var kod = sorok[i]['id'];
+            var s = '<button onclick="HozzaAd('+kod+',1)" class="kosar_gomb"><i class="fa-solid fa-plus"></i></button>'+
+                    '<button onclick="HozzaAd('+kod+',-1)" class="kosar_gomb"><i class="fa-solid fa-minus"></i></button>' +
+                    '<button onclick="Torol('+kod+')" class="kosar_gomb"><i class="fa-solid fa-trash"></i></button></div>';
+            t_mennyiseg.innerHTML = s;
+            //
+            /*var i_plusz = document.createElement('i');
+            var i_minusz = document.createElement('i');
+            var i_torol = document.createElement('i');
+            i_plusz.setAttribute('class','fa-solid fa-plus');
+            i_minusz.setAttribute('class','fa-solid fa-minus');
+            i_torol.setAttribute('class','fa-solid fa-trash');
+            g_plusz.appendChild(i_plusz);
+            g_minusz.appendChild(i_minusz);
+            g_torol.appendChild(i_torol);
+        }
+        var p = document.createElement('p');
+        p.setAttribute('align','center');
+        p.innerHTML = '<button onclick="KosarTorol()">Kosár törlése</button>';
+        parent.appendChild(p);*/
