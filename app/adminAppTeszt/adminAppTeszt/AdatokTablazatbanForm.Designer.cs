@@ -45,9 +45,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dgv);
-            this.Font = new System.Drawing.Font("Lucida Sans Typewriter", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "AdatokTablazatbanForm";
-            this.Text = "Adatok";
+            this.Text = "";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdatokTablazatbanForm_FormClosed);
             this.Load += new System.EventHandler(this.AdatokTablazatbanForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();

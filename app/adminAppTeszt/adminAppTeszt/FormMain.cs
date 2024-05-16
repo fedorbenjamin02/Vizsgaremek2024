@@ -49,29 +49,33 @@ namespace adminAppTeszt
                 " AS m ON m.id = t.mennyisegi_egysegek_id INNER JOIN afa_kulcsok AS a ON a.id = t.afa_kulcs_id ORDER BY tcs.id;";
             //string sql = "SELECT t.megnevezes AS Megnevezés FROM termek AS t INNER JOIN termek_csoport AS tcs ON tcs.id = t.termek_csoport_id WHERE tcs.megnevezes = 'Levesek'";
             AdatokTablazatbanFrm.DGV.DataSource = DB.SelectDataTableGUI(sql);
-            AdatokTablazatbanFrm.ShowDialog();
             AdatokTablazatbanFrm.Text = "Termékek";
+            AdatokTablazatbanFrm.ShowDialog();
+            
         }
         private void felhasználóiAdatokToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string sql = "SELECT * FROM felhasznalo_adatok";
             AdatokTablazatbanFrm.DGV.DataSource = DB.SelectDataTableGUI(sql);
-            AdatokTablazatbanFrm.ShowDialog();
             AdatokTablazatbanFrm.Text = "Felhasználói adatok";
+            AdatokTablazatbanFrm.ShowDialog();
+            
         }
         private void fizetésiMódokToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             string sql = "SELECT * FROM fizetesi_modok";
             AdatokTablazatbanFrm.DGV.DataSource = DB.SelectDataTableGUI(sql);
-            AdatokTablazatbanFrm.ShowDialog();
             AdatokTablazatbanFrm.Text = "Fizetési módok";
+            AdatokTablazatbanFrm.ShowDialog();
+            
         }
         private void áfakulcsokToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             string sql = "SELECT * FROM afa_kulcsok";
             AdatokTablazatbanFrm.DGV.DataSource = DB.SelectDataTableGUI(sql);
-            AdatokTablazatbanFrm.ShowDialog();
             AdatokTablazatbanFrm.Text = "Áfa kulcsok";
+            AdatokTablazatbanFrm.ShowDialog();
+            
         }
         private void településekToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -79,8 +83,9 @@ namespace adminAppTeszt
             int offset = 0;
             string sql = "SELECT * FROM telepulesek LIMIT " + limit + " OFFSET " + offset + " ;";
             AdatokTablazatbanFrm.DGV.DataSource = DB.SelectDataTableGUI(sql);
-            AdatokTablazatbanFrm.ShowDialog();
             AdatokTablazatbanFrm.Text = "Települések";
+            AdatokTablazatbanFrm.ShowDialog();
+            
         }
         private void termékCsoportokToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -88,8 +93,9 @@ namespace adminAppTeszt
                 " tcs.megnevezes AS Megnevezés FROM termek_csoport AS tcs" + 
                 " INNER JOIN termek_kategoria AS tk ON tcs.termek_kategoria_id=tk.id ORDER BY tcs.id;";
             AdatokTablazatbanFrm.DGV.DataSource = DB.SelectDataTableGUI(sql);
-            AdatokTablazatbanFrm.ShowDialog();
             AdatokTablazatbanFrm.Text = "Termék csoportok";
+            AdatokTablazatbanFrm.ShowDialog();
+            
         }
         private void rendelésekToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -103,8 +109,9 @@ namespace adminAppTeszt
                 " INNER JOIN fizetesi_modok AS fm ON fm.id = r.fizetesi_modok_id" + 
                 " INNER JOIN rendeles_statusza AS rs ON rs.id = r.rendeles_statusza_id ORDER BY r.rendeles_datumido;";
             AdatokTablazatbanFrm.DGV.DataSource = DB.SelectDataTableGUI(sql);
-            AdatokTablazatbanFrm.ShowDialog();
             AdatokTablazatbanFrm.Text = "Rendelések";
+            AdatokTablazatbanFrm.ShowDialog();
+            
         }
         private void rendelésTételeiToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -113,15 +120,17 @@ namespace adminAppTeszt
             " rt.mennyiseg AS mennyiség FROM rendeles_tetelei AS rt INNER JOIN termek" +
             " AS t ON t.id = rt.termek_id INNER JOIN rendeles AS r ON r.id = rt.rendeles_id ORDER BY 1;";
             AdatokTablazatbanFrm.DGV.DataSource = DB.SelectDataTableGUI(sql);
-            AdatokTablazatbanFrm.ShowDialog();
             AdatokTablazatbanFrm.Text = "Rendelés tételei";
+            AdatokTablazatbanFrm.ShowDialog();
+            
         }
         private void mennyiségiEgységekToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             string sql = "SELECT * FROM mennyisegi_egysegek";
             AdatokTablazatbanFrm.DGV.DataSource = DB.SelectDataTableGUI(sql);
-            AdatokTablazatbanFrm.ShowDialog();
             AdatokTablazatbanFrm.Text = "Mennyiségi egységek";
+            AdatokTablazatbanFrm.ShowDialog();
+            
         }
         private void szállításiCímToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -131,8 +140,9 @@ namespace adminAppTeszt
                 " AS fh ON szc.felhasznalo_adatok_id = fh.id INNER JOIN " +
                 " telepulesek AS t ON szc.telepules_id = t.id ORDER BY szc.id;";
             AdatokTablazatbanFrm.DGV.DataSource = DB.SelectDataTableGUI(sql);
-            AdatokTablazatbanFrm.ShowDialog();
             AdatokTablazatbanFrm.Text = "Szállítási címek";
+            AdatokTablazatbanFrm.ShowDialog();
+            
 
         }
         #endregion
